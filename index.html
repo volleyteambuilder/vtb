@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="vtbcss.css" />
+        <title>Volley Team Builder</title>
+    </head>
+
+    <body>
+	<!-- info from settings-->
+
+	<h1><img src="vtb.png" alt="VTB" title="VTB" /></h1>
+	<h1>Volley Team Builder</h1>
+
+	<ul>
+		<li><a href="#description">Description</a></li>
+		<li><a href="#info">Info sur les onglets</a></li>
+		<li><a href="#misc">Divers</a></li>
+		<li><a href="#rgpd">Gestion des données personnelles</a></li>
+		<li><a href="mailto:volleyteambuilder@free.fr">Contact</a></li>
+	</ul>
+
+	<h2 id="description">Description</h2>
+
+	<p>VTB permet de construire des équipes de volley bonne ambiance.</p>
+
+<p>Dans le cadre d'une séance de volley loisir, les niveaux des joueurs peuvent être très différents et il faut faire des équipes homogènes en terme de niveau sinon certaines équipes mettent la pâtée aux autres. Et si on peut mettre les copains dans la même équipe, c'est encore mieux. 
+Une fois le niveau et les affinités de chaque joueur renseignés, VTB va générer des équipes équilibrées en respectant un maximum de voeux. </p>
+
+<p>Par exemple, si Micheline est débutante et Raoul super fort, et si Marie et Luc veulent jouer ensemble, et si Bernadette aime bien courir partout mais préfèrerait éviter d'être avec Brandon parce qu'il lui pique ses balles, et si Conan s'est blessé à force de tourner sa roue et est donc pas au max sur cette séance, et si Aurore est plutôt douée en défense donc il lui faut un attaquant comme Yusuke dans son équipe, et si Nico est parti en vacances faire de la randonnée, et si et si et si, ho la la c'est compliqué de faire des équipes équilibrées en essayant de faire plaisir à tout le monde !!
+Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au mieux pour satisfaire tout le monde tout en faisant des équipes à peu près équilibrées. Et l'avantage c'est que comme ça si les gens sont pas contents des équipes, c'est la faute de personne.</p>
+
+<p>
+	<img class="screenshot" src="vtb1.png" alt="chargement" title="chargement" />
+	<img class="screenshot" src="vtb2.png" alt="accueil" title="accueil" />
+	<img class="screenshot" src="vtb3.png" alt="joueurs" title="joueurs" />
+	<img class="screenshot" src="vtb4.png" alt="fiche joueur" title="fiche joueur" />
+	<img class="screenshot" src="vtb5.png" alt="preferences" title="preferences" />
+	<img class="screenshot" src="vtb6.png" alt="solution" title="solution" />
+	<img class="screenshot" src="vtb7.png" alt="reglages" title="reglages" />
+</p>
+
+
+	<h2 id="info">Info sur les onglets</h2>
+
+        <h3>ACCUEIL</h3>
+        <ul>    
+        	<li>A quoi sert <span class="vtbdef">Volley Team Builder</span> ?<br>VTB sert à faire des équipes de volley bonne ambiance. Dans le cadre d'une séance loisir, les niveaux des joueurs peuvent être très différents et l'encadrant de la séance (appelons-le Luc) doit faire des équipes homogènes en terme de niveau sinon certaines équipes mettent la patée à d'autres. Et si il arrive à mettre des gens qui s'entendent bien dans la même équipe, c'est encore mieux. VTB construit les équipes en fonction de critères de niveau et d'affinités.</li>
+        	<li>Comment ça marche ?<br>VTB construit X solutions équilibrées et sélectionne les N solutions réalisant le plus de souhaits. Pour construire une solution, VTB choisit un joueur aléatoirement et le place dans l'équipe qui donne la solution partielle la plus équilibrée possible (minimisation de la distance), et recommence jusqu'à épuisement des joueurs (algo glouton). Le score d'une équipe est la moyenne du niveau de ses joueurs (avec un coef de (6+nbJoueurs)/12). Le bonus d'une solution est le nombre de souhaits réalisés (affinités - taille de l'équipe).</li>
+		</ul>
+        
+
+        <h3>JOUEURS</h3>
+        <ul>
+            <li><span class="vtbdef">Jour</span> : <br/>Le jour courant apparait en haut de la liste des joueurs et si on appuie sur "valider", les joueurs inscrits à cette séance deviendront automatiquement présents tandis que les autres joueurs deviendront automatiquement absents. Les présents sont en début de liste, les absents en fin de liste. On peut également changer la présence/absence d'un joueur en swipant vers la gauche et en choisissant 0/1.</li>
+            <li><span class="vtbdef">Joueur absent/blessé</span> : <br/>En swipant vers la gauche dans la liste des joueurs, on peut dire qu'un joueur est blessé (🤕) ou absent (0/1). Si il est blessé, il apparait en gris clair dans la liste, son score sera abaissé de 1 et sa préférence en taille d'équipe sera réduite (sans toucher à sa fiche). Une fois guéri, il suffit de supprimer le flag blessé. On peut également supprimer le joueur de l'application en cliquant sur la croix rouge (X).</li>
+        	<li><span class="vtbdef">Niveau</span> : <br/>Pour configurer le niveau d'un joueur. C'est un niveau intrinseque qui servira pour toutes les seances. Si jamais Raoul joue le lundi avec des bons joueurs et le jeudi avec des moins bons, il garde le même niveau, simplement le niveau moyen des joueurs du lundi sera supérieur au niveau moyen des joueurs du jeudi. Ce niveau est utilisé pour répartir les joueurs dans les équipes afin d'obtenir des équipes équilibrées.</li>
+        	<li><span class="vtbdef">Def/Att</span> : <br/>Pour configurer le profil d'un joueur, plutôt un défenseur, un joueur complet ou un attaquant. Ca sert pour le paramètre <span class="param">répartition def/attaque</span> des réglages.</li>
+        	<li><span class="vtbdef">Timide/Normal/Bavard</span> : <br/>Pour préciser si un joueur est plutôt bavard ou silencieux sur le terrain. Ca sert pour le paramètre <span class="param">répartition tim/bavards</span> des réglages.</li>
+        	<li><span class="vtbdef">Affinités</span> : <br/>Pour préciser les affinités d'un joueur avec les autres. Ca peut aller de -2 à +2. En gros ce sont des souhaits (j'aimerais être avec Michel / j'aimerais éviter d'être avec Michel), et VTB proposera en priorité les solutions réalisant le plus grand nombre de souhaits. Mais il ne pourra pas forcément satisfaire tout le monde (en général on veut tous jouer avec les mêmes et éviter les mêmes, ha ha). Les affinités fortes peuvent devenir des contraintes obligatoires lors de la construction de l'équipe si le paramètre <span class="param">préférences joueurs</span> est activé dans les réglages.</li>
+        	<li><span class="vtbdef">Taille équipe</span> : <br/>Pour préciser la préférence d'un joueur pour les petites ou les grosses équipes. Est-ce qu'il aime courir ou pas trop ? Si un joueur préfère les petites équipes et qu'il est effectivement dans une équipe avec moins de joueurs (car on n'est pas toujours le nombre exact), la solution aura un bonus de +1 ou +2. Si au contraire ce joueur est dans une équipe avec plus de joueurs, la solution aura un bonus de -1 ou -2. Et l'inverse si il préfère les grosses équipes (bonus positif si grosse équipe, négatif si petite équipe). Si le joueur a un niveau un peu trop faible, il ne pourra pas demander une petite équipe. Les demandes fortes peuvent devenir des contraintes obligatoires lors de la construction de l'équipe si le paramètre <span class="param">préférences équipe</span> est activé dans les réglages.</li>
+    	</ul>
+
+		<h3>SOLUTIONS</h3>
+		<ul>
+			<li>C'est quoi tous ces petits chiffres sur la ligne de l'équipe (cf. capture d'écran solution) ? <br/>Les deux premiers chiffres, ce sont les bonus (affinités / taille de l'équipe). Ensuite c'est le niveau moyen de l'équipe après application du coef de (6+nbJoueurs)/12). Entre parenthèses, c'est le niveau moyen de l'équipe avant application du coef, avec le détail niveau moyen défense et niveau moyen attaque.</li>
+    	</ul>
+        
+
+        <h3>REGLAGES</h3>
+        <ul>
+        	<li><span class="vtbdef">Même nb joueurs</span> : <br/>Sert pas à grand chose en vrai. Si désactivé on peut avec 7 joueurs et 2 équipes par exemple, avoir une équipe de 2 et une équipe de 5. Si activé, on aura forcément une équipe de 3 et une équipe de 4.</li>
+       		<li><span class="vtbdef">Même nb filles</span> : <br/>Sert à répartir les filles dans les équipes, et les garçons aussi du coup. A avoir des équipes mixtes quoi.</li>
+        	<li><span class="vtbdef">Répartition tim/bavards</span> : <br/>Sert à éviter les équipes trop silencieuses. Quand on a que des timides qui parlent pas dans une équipe, en général ça fonctionne moins bien. C'est lié au paramètre <span class="param">timide/normal/bavard</span> de la fiche joueur (qui vaut 0, 1 ou 2). Si on a une équipe avec une moyenne en-dessous de 0.5, la solution va à la poubelle.</li>
+        	<li><span class="vtbdef">Répartition def/attaque</span> : <br/>Sert à répartir les profils attaquants et les profils défenseurs. Pour éviter d'avoir une équipe avec beaucoup de fond de jeu mais aucun attaquant, ou l'inverse. Si jamais une équipe a un niveau moyen de défense en-dessous de 0.85 du niveau moyen de défense de tous les participants, la solution va à la poubelle. Pareil pour l'attaque. C'est lié aux paramètres <span class="param">niveau</span> et <span class="param">def/attaque</span> de la fiche joueur.</li>
+        	<li><span class="vtbdef">Préférences joueurs</span> : <br/>Si jamais Micheline adore Raoul, qu'elle l'a mis en +2 dans ses préférences, et que cette option est activée, alors ils seront forcément dans la même équipe. Et évidemment, si elle le déteste et qu'elle l'a mis en -2 dans ses préférences, alors ils seront forcément dans des équipes différentes. Attention, ça peut vite limiter les solutions possibles ! En particulier si Raoul n'est pas du même avis et a configuré l'inverse dans ses affinités. Les équipes risquent d'être moins équilibrées vu qu'on force la main à l'algo. C'est lié au tableau <span class="param">affinités</span> de la fiche joueur.</li>
+        	<li><span class="vtbdef">Alléger/Supprimer les préférences joueurs</span> : <br/>Si tout le monde a mis des contraintes fortes et que du coup il n'y a plus aucune solution qui sort, on a deux possibilités : désactiver l'option <span class="param">préférences joueurs</span>, ou cliquer sur un de ces deux boutons. Alléger les préférences va passer toutes les affinités +2 en +1 et -2 en -1. Supprimer les préférences va supprimer toutes les affinités de tous les joueurs. Attention, ces deux boutons vont modifier les fiches joueurs !! C'est lié au tableau <span class="param">affinités</span> de la fiche joueur.</li>
+            <li><span class="vtbdef">Préférences équipe</span> : <br/>Si jamais Marie a passé sa journée à coder et a vraiment besoin de se défouler, elle peut choisir "veut une petite équipe" et si cette option est activée, alors elle sera forcément dans une des équipes avec le moins de joueurs. Et l'inverse avec les grosses équipes aussi évidemment. Attention, ça peut vite limiter les solutions possibles ! Les équipes risquent d'être moins équilibrées vu qu'on force la main à l'algo. C'est lié au tableau <span class="param">taille équipe</span> de la fiche joueur.</li>
+            <li><span class="vtbdef">Alléger/Supprimer les préférences équipe</span> : <br/>Si tout le monde a mis des contraintes fortes et que du coup il n'y a plus aucune solution qui sort, on a deux possibilités : désactiver l'option <span class="param">préférences équipe</span>, ou cliquer sur un de ces deux boutons. Alléger va passer tous les réglages "veut une petite équipe" en "préfère une petite équipe" et les "veut une grosse équipe" en "préfère une grosse équipe". Supprimer va supprimer tous les réglages de taille d'équipe de tous les joueurs. Attention, ces deux boutons vont modifier les fiches joueurs !! C'est lié au paramètre <span class="param">taille équipe</span> de la fiche joueur.</li>
+        	<li><span class="vtbdef">Nb solutions testées</span> : <br/>C'est le nombre de solutions testées (X dans le blabla du début). Les solutions sont toutes par construction relativement équilibrées car on place les joueurs un par un dans les équipes, et qu'on place toujours le joueur dans l'équipe donnant la meilleure répartition des niveaux. En fait dans la construction on oriente un peu le choix de l'équipe pour avoir des solutions viables à la fin (en cas de contraintes fortes ou de répartitions des filles/garçons par exemple). Vaut 100 par défaut.</li>
+        	<li><span class="vtbdef">Nb solutions affichées</span> : <br/>C'est le nombre de solutions gardées (N dans le paragraphe du début). On garde les solutions réalisant le maximum de souhaits. A l'affichage, on trie les solutions pour les afficher de la plus équilibrée à la moins équilibrée, en précisant le bonus de cette solution (bonus affinités et bonus taille de l'équipe). Vaut 10 par défaut.</li>
+    	</ul>
+        
+
+     <h2 id="misc">Divers</h2>
+        <ul>
+        	<li>Ca marche que pour le volley ?<br/>Evidemment, les autres sports c'est pour les nazes. Sauf le ping-pong et le bad.</li>
+        	<li>Iphone uniquement ?<br/>Oui.</li>
+        	<li>Y a moyen de récupérer les configs des joueurs d'un autre telephone ?<br/>C'était cool de coder l'algo, le reste ça me fait moins envie. Donc non, désolée. En plus avec les données personnelles, mon pote Luc m'a dit qu'il fallait faire attention. Il a écrit un blabla géant pour le <a href="#rgpd">RGPD</a>, cf. ci-dessous.</li>
+        	<li>VTB trouve pas de solution, c'est normal ?<br/>T'as demandé 8 équipes avec 2 joueurs banane ? Ou alors y a trop de contraintes incompatibles dans les préférences des joueurs présents. Et même si il existe une solution possible qui respecte toutes les préférences, il faut encore que cette solution remplisse les autres contraintes (équipes mixtes, répartition def/attaque). Dans ce cas, le mieux c'est d'aller dans les réglages et de désactiver \"préférences joueurs\" et/ou \"préférences équipe\" ou allèger/suppprimer les préférences.</li>
+        	<li>Mais y a plein de bugs dans ce truc, c'est abusé !<br/>Mais nannn, ce sont des trous fonctionnels. Vous pouvez envoyer un mail à <a href="mailto:volleyteambuilder@free.fr">volleyteambuilder@free.fr</a>, si je suis pas au boulot, au volley, avec les enfants ou devant la télé, c'est sûr je vous réponds !</li>
+        	<li>C'est politiquement correct de mettre des notes aux gens et de dire que t'aimes pas untel ou untel ?<br/>Oui bon, c'est pas pire qu'un site de rencontre hein.</li>
+		</ul>
+
+
+
+    <h2 id="rgpd">Gestion des données personnelles</h2>
+    <p>
+    	Le concepteur de l'application VTB attache une grande importance à la protection et confidentialité de la vie privée plus particulièrement des données à caractère personnel. Dans ce cadre, l'application VTB met en oeuvre des dispositions particulières permettant à chaque utilisateur de l'application d'être en conformité avec le règlement européen de protection des données personnelles (RGPD), toutefois la responsabilité effective de cette conformité doit être assurée par ce dernier. Il doit en particulier :
+    	<ul>
+        <li>S'assurer à chaque saison sportive (chaque année) du consentement explicite des participants à la collecte des données personnelles et en garder trace.</li>
+        <li>Les informer de l'unique finalité d'usage qui est : la composition d'équipes de volley-ball équilibrées pour assurer un jeu agréable et équitable</li>
+        <li>Permettre aux participants d'exercer leur droit d'accès et de rectification des données collectées ainsi que la portabilité des informations.</li>
+        <li>Supprimer les données personnelles des participants au bout de 12 mois quand ceux-ci n'ont pas renouvelés explicitement leur consentement.</li>
+        <li>S'engager à n'utiliser les données pour aucun autre traitement que celui de la finalité expresse de constitution d'équipes sportives équilibrées.</li>
+        <li>S'engager à ne pas transmettre à des tiers ces données collectées.</li>
+    	</ul>
+	</p>
+        
+	<p>
+	Au delà de la responsabilité et des engagements de l'utilisateur de l'application, le concepteur de VTB partage en toute transparence les informations suivantes :
+		<ol>
+		<li>QUEL TYPE DE DONNÉES VTB COLLECTE-T-ELLE AUPRÈS DES JOUEURS PARTICIPANTS ?
+        	<ul>
+        		<li>Des données d'identification : nom, prénom, surnom (au choix de l'utilisateur)</li>
+        		<li>Des données concernant les caractéristiques et les préférences individuelles de jeu : estimation du niveau technique dans les différents compartiments de jeu, préférences du nombre de joueurs par équipe</li>
+        		<li>Des donneés relatives à l'état de forme du moment de chaque joueur sous la forme d'un malus en cas de blessure</li	>
+        		<li>Des données relatives à l'affinité et à la complémentarité de jeu entre les participants</li>
+        		<li>Des données relatives à la participation du joueur à des séances de jeu</li>
+        	</ul>
+        </li>
+        
+		<li>DE QUELLE FAÇON VTB UTILISE-T-ELLE LES DONNÉES DES JOUEURS ?
+			<ul>
+        		<li>La pratique du volley ball loisir dans les meilleures conditions requiert que des équipes homogènes soient mises en opposition. Les encadrants des séances sont confrontés à la problématique de répartir le mieux possible les participants dans les équipes. VTB apporte une aide précieuse dans cette tâche d'optimisation combinatoire en calculant puis en proposant à l'utilisateur encadrant des équipes pré-constituées répondant aux critères optimisés.</li>
+        		<li>La finalité principale et unique est donc la constitution d'équipes de volley équilibrées afin de garantir des séances de volley où les joueurs sont répartis équitablement dans les équipes pour procurer un niveau de jeu homogène et agréable aux participants.</li>
+        	</ul>
+        </li>
+
+	    <li>COMMENT LES JOUEURS PARTICIPANTS PEUVENT GÉRER LA COLLECTE ET L’UTILISATION QUI SONT FAITES DE LEURS DONNÉES ?
+	    	<ul>
+	    		<li>La collecte des informations décrites au paragraphe 1 est effectuée sous l'unique responsabilité de l'utilisateur de l'application VTB.</li>
+        		<li>Ces données sont saisies dans l'application VTB via des formulaires permettant d’alimenter une base d'information joueurs, localisée uniquement sur le terminal.</li>
+        		<li>Il est à noter que l'application propose toutes les fonctionnalités permettant d'exercer le droit d'accès de modification et de suppression des données collectées. L'exercice de droit doit être formulé par le joueur auprès de l'encadrant utilisateur de l'application VTB.</li>
+        	</ul>
+        </li>
+        
+        <li>DE QUELLE FAÇON VTB ASSURE-T-ELLE LA SÉCURITÉ DE VOS DONNÉES ?
+        	<ul>
+        		<li>La sécurité des données collectées sont assurées par les mécanismes de sécurité du terminal et du système d'exploitation mobile.</li>
+        		<li>Les données sont uniquement stockées localement sur le terminal mobile et ne sont pas dupliquées sur un cloud.</li>
+        		<li>La non divulgation des données est sous la responsabilité de l'utilisateur mais il est à noter que VTB ne propose pas de mécanisme d'export des données afin de garantir la confidentialité et d’empêcher la transmission automatisée des données.</li>
+        	</ul>
+        </li>
+    	</ol>
+    </p>
+    <br/>
+    <br/>
+
+
+    </body>
+</html>
