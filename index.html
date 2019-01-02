@@ -31,13 +31,14 @@ Une fois le niveau et les affinités de chaque joueur renseignés, VTB va géné
 Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au mieux pour satisfaire tout le monde tout en faisant des équipes à peu près équilibrées. Et l'avantage c'est que comme ça si les gens sont pas contents des équipes, c'est la faute de personne.</p>
 
 <p>
-	<img class="screenshot" src="vtb1.PNG" alt="chargement" title="chargement" />
-	<img class="screenshot" src="vtb2.PNG" alt="accueil" title="accueil" />
-	<img class="screenshot" src="vtb3.PNG" alt="joueurs" title="joueurs" />
-	<img class="screenshot" src="vtb4.PNG" alt="fiche joueur" title="fiche joueur" />
-	<img class="screenshot" src="vtb5.PNG" alt="preferences" title="preferences" />
-	<img class="screenshot" src="vtb6.PNG" alt="solution" title="solution" />
-	<img class="screenshot" src="vtb7.PNG" alt="reglages" title="reglages" />
+	<img class="screenshot" src="vtb1.png" alt="chargement" title="chargement" />
+	<img class="screenshot" src="vtb2.png" alt="accueil" title="accueil" />
+	<img class="screenshot" src="vtb3.png" alt="joueurs" title="joueurs" />
+	<img class="screenshot" src="vtb4.png" alt="fiche joueur" title="fiche joueur" />
+	<img class="screenshot" src="vtb5.png" alt="preferences" title="preferences" />
+    <img class="screenshot" src="vtb8.png" alt="matchs" title="matchs" />
+	<img class="screenshot" src="vtb6.png" alt="solution" title="solution" />
+	<img class="screenshot" src="vtb7.png" alt="reglages" title="reglages" />
 </p>
 
 
@@ -46,7 +47,7 @@ Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au 
         <h3>ACCUEIL</h3>
         <ul>    
         	<li>A quoi sert <span class="vtbdef">Volley Team Builder</span> ?<br>VTB sert à faire des équipes de volley bonne ambiance. Dans le cadre d'une séance loisir, les niveaux des joueurs peuvent être très différents et l'encadrant de la séance (appelons-le Luc) doit faire des équipes homogènes en terme de niveau sinon certaines équipes mettent la patée à d'autres. Et si il arrive à mettre des gens qui s'entendent bien dans la même équipe, c'est encore mieux. VTB construit les équipes en fonction de critères de niveau et d'affinités.</li>
-        	<li>Comment ça marche ?<br>VTB construit X solutions équilibrées et sélectionne les N solutions réalisant le plus de souhaits. Pour construire une solution, VTB choisit un joueur aléatoirement et le place dans l'équipe qui donne la solution partielle la plus équilibrée possible (minimisation de la distance), et recommence jusqu'à épuisement des joueurs (algo glouton). Le score d'une équipe est la moyenne du niveau de ses joueurs (avec un coef de (6+nbJoueurs)/12). Le bonus d'une solution est le nombre de souhaits réalisés (affinités - taille de l'équipe).</li>
+        	<li>Comment ça marche ?<br>VTB construit X solutions équilibrées et sélectionne les N meilleures solutions. Pour construire une solution, VTB choisit un joueur aléatoirement et le place dans l'équipe qui donne la solution partielle la plus équilibrée possible (minimisation de la distance), et recommence jusqu'à épuisement des joueurs (algo glouton miam miam). Le score d'une équipe est la moyenne du niveau de ses joueurs (avec un coef de (6+nbJoueurs)/12). Le bonus d'une équipe est le nombre de souhaits réalisés (affinités - taille de l'équipe) pour tous les joueurs de l'équipe. Le bonus d'une solution est le plus petit bonus par équipe. Le bonus total d'une solution est le nombre de souhaits réalisés (affinités - taille de l'équipe) pour tous les joueurs. Une solution est meilleure qu'une autre quand son bonus est plus grand, et en cas d'égalité si son bonus total est plus grand.</li>
 		</ul>
         
 
@@ -63,8 +64,15 @@ Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au 
 
 		<h3>SOLUTIONS</h3>
 		<ul>
+            <li>Les solutions sont classées bizarrement non ? <br/>Les meilleures solutions sont conservées. Les trois critères pour savoir si une solution est meilleure qu'une autre sont (dans cet ordre) : meilleur bonus, meilleur bonus total, meilleure distance. Mais comme à la base le but c'est d'avoir des équipes équilibrées, à l'affichage je réordonne les solutions conservées suivant les critères suivants (dans cet ordre) : meilleure distance, meilleur bonus, meilleur bonus total. A vous de voir si vous voulez privilégier des équipes équilibrées (distance la plus petite) ou des équipes où les gens sont avec leurs copains (bonus le plus grand).</li>
 			<li>C'est quoi tous ces petits chiffres sur la ligne de l'équipe (cf. capture d'écran solution) ? <br/>Les deux premiers chiffres, ce sont les bonus (affinités / taille de l'équipe). Ensuite c'est le niveau moyen de l'équipe après application du coef de (6+nbJoueurs)/12). Entre parenthèses, c'est le niveau moyen de l'équipe avant application du coef, avec le détail niveau moyen défense et niveau moyen attaque.</li>
     	</ul>
+
+        <h3>MATCHS</h3>
+        <ul>
+            <li><span class="vtbdef">Générer les matchs</span> : <br/>En fonction du nombre de terrains, ça va générer les matchs (mode championnat, toutes les équipes se rencontrent), en faisant attention de ne pas faire attendre trop longtemps une même équipe dans le cas où il n'y a pas assez de terrains pour que tout le monde joue en même temps. Ca fait aussi quelques choix en random donc ça peut arriver qu'on vous demande de cliquer plusieurs fois, faut pas s'inquiéter et obéir (aie confiance... crois en moi...). On peut ensuite cliquer sur un match pour rentrer le résultat.</li>
+            <li><span class="vtbdef">Voir le classement</span> : <br/>Affiche le classement en fonction des scores rentrés. Il peut y avoir des matchs nuls (c'est rare mais des fois y a des tournois au temps donc pourquoi pas).</li>
+        </ul>
         
 
         <h3>REGLAGES</h3>
@@ -78,7 +86,7 @@ Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au 
             <li><span class="vtbdef">Préférences équipe</span> : <br/>Si jamais Marie a passé sa journée à coder et a vraiment besoin de se défouler, elle peut choisir "veut une petite équipe" et si cette option est activée, alors elle sera forcément dans une des équipes avec le moins de joueurs. Et l'inverse avec les grosses équipes aussi évidemment. Attention, ça peut vite limiter les solutions possibles ! Les équipes risquent d'être moins équilibrées vu qu'on force la main à l'algo. C'est lié au tableau <span class="param">taille équipe</span> de la fiche joueur.</li>
             <li><span class="vtbdef">Alléger/Supprimer les préférences équipe</span> : <br/>Si tout le monde a mis des contraintes fortes et que du coup il n'y a plus aucune solution qui sort, on a deux possibilités : désactiver l'option <span class="param">préférences équipe</span>, ou cliquer sur un de ces deux boutons. Alléger va passer tous les réglages "veut une petite équipe" en "préfère une petite équipe" et les "veut une grosse équipe" en "préfère une grosse équipe". Supprimer va supprimer tous les réglages de taille d'équipe de tous les joueurs. Attention, ces deux boutons vont modifier les fiches joueurs !! C'est lié au paramètre <span class="param">taille équipe</span> de la fiche joueur.</li>
         	<li><span class="vtbdef">Nb solutions testées</span> : <br/>C'est le nombre de solutions testées (X dans le blabla du début). Les solutions sont toutes par construction relativement équilibrées car on place les joueurs un par un dans les équipes, et qu'on place toujours le joueur dans l'équipe donnant la meilleure répartition des niveaux. En fait dans la construction on oriente un peu le choix de l'équipe pour avoir des solutions viables à la fin (en cas de contraintes fortes ou de répartitions des filles/garçons par exemple). Vaut 100 par défaut.</li>
-        	<li><span class="vtbdef">Nb solutions affichées</span> : <br/>C'est le nombre de solutions gardées (N dans le paragraphe du début). On garde les solutions réalisant le maximum de souhaits. A l'affichage, on trie les solutions pour les afficher de la plus équilibrée à la moins équilibrée, en précisant le bonus de cette solution (bonus affinités et bonus taille de l'équipe). Vaut 10 par défaut.</li>
+        	<li><span class="vtbdef">Nb solutions affichées</span> : <br/>C'est le nombre de solutions gardées (N dans le paragraphe du début). On garde les solutions qui ne pénalisent aucune équipe et réalisant le maximum de souhaits. A l'affichage, on trie les solutions pour les afficher de la plus équilibrée à la moins équilibrée, en précisant le bonus et le bonus total de cette solution (bonus affinités et bonus taille de l'équipe). Vaut 10 par défaut.</li>
     	</ul>
         
 
@@ -89,7 +97,7 @@ Dans ce cas-là, on demande à VTB de faire les équipes, il essaie de faire au 
         	<li>Y a moyen de récupérer les configs des joueurs d'un autre telephone ?<br/>C'était cool de coder l'algo, le reste ça me fait moins envie. Donc non, désolée. En plus avec les données personnelles, mon pote Luc m'a dit qu'il fallait faire attention. Il a écrit un blabla géant pour le <a href="#rgpd">RGPD</a>, cf. ci-dessous.</li>
         	<li>VTB trouve pas de solution, c'est normal ?<br/>T'as demandé 8 équipes avec 2 joueurs banane ? Ou alors y a trop de contraintes incompatibles dans les préférences des joueurs présents. Et même si il existe une solution possible qui respecte toutes les préférences, il faut encore que cette solution remplisse les autres contraintes (équipes mixtes, répartition def/attaque). Dans ce cas, le mieux c'est d'aller dans les réglages et de désactiver \"préférences joueurs\" et/ou \"préférences équipe\" ou allèger/suppprimer les préférences.</li>
         	<li>Mais y a plein de bugs dans ce truc, c'est abusé !<br/>Mais nannn, ce sont des trous fonctionnels. Vous pouvez envoyer un mail à <a href="mailto:volleyteambuilder@free.fr">volleyteambuilder@free.fr</a>, si je suis pas au boulot, au volley, avec les enfants ou devant la télé, c'est sûr je vous réponds !</li>
-        	<li>C'est politiquement correct de mettre des notes aux gens et de dire que t'aimes pas untel ou untel ?<br/>Oui bon, c'est pas pire qu'un site de rencontre hein.</li>
+        	<li>C'est politiquement correct de mettre des notes aux gens et de dire que t'aimes pas untel ou untel ?<br/>Oui bon, c'est pas pire qu'un site de rencontres hein.</li>
 		</ul>
 
 
