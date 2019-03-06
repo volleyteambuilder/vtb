@@ -1,7 +1,8 @@
 modifier les fichiers en local (bureau/vtbweb)
 dans l'appli github desktop : se connecter avec volleyteambuilder (préférences), faire commit to gh-pages
-vérifier en se logant à github que les fichiers sont bien ok
 dans l'appli github desktop : repository > push
+vérifier en se logant à github que les fichiers sont bien ok
+
 
 Pour nouveau projet : 
 Créer un compte GitHub
